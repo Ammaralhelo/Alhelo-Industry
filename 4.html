@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>الحلو للصناعة والتقنيات الحديثة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+  
+{
+    font-family: "Naskh", sans-serif;
+}
+    :root {
+      --bg-main: #050507;
+      --bg-section: #101015;
+      --bg-card: #15151c;
+      --bg-card-soft: #1b1b24;
+      --gold: #c9a86a;
+      --gold-soft: #e0c48a;
+      --text-main: #f5f5f7;
+      --text-muted: #b0b0c0;
+      --border-subtle: #262633;
+      --radius: 12px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Naskh', system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    body
+
+ {
+      background: radial-gradient(circle at top, #151520, #050507);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 10px rgba(201, 168, 106, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(201, 168, 106, 0.9);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(201, 168, 106, 0.4);
+      }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 5, 10, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201, 168, 106, 0.25);
+      animation: fadeIn 0.6s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #f5e3b5, #c9a86a, #7b5a2b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: #111;
+      animation: glowPulse 2.5s infinite;
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 3px;
+      color: #e0e0e8;
+      white-space: nowrap;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width var(--transition);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 10px 25px rgba(201, 168, 106, 0.45);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 35px rgba(201, 168, 106, 0.6);
+    }
+
+    .btn-ghost {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 168, 106, 0.6);
+      background: transparent;
+      color: var(--gold-soft);
+      cursor: pointer;
+      font-size: 12px;
+      transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(201, 168, 106, 0.12);
+      border-color: var(--gold);
+      color: #fdfdfd;
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(201, 168, 106, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(201, 168, 106, 0.12), transparent 55%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      animation: fadeUp 0.7s ease;
+    }
+
+    .hero-title span {
+      color: var(--gold-soft);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      animation: fadeUp 0.9s ease;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+      animation: fadeUp 1s ease;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 168, 106, 0.4);
+      color: var(--gold-soft);
+      background: rgba(10, 10, 10, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+      animation: fadeUp 1.1s ease;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero-note span {
+      color: var(--gold-soft);
+    }
+
+    .hero-image {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      transform: translateY(0);
+      animation: fadeUp 0.9s ease;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform: scale(1.02);
+      transition: transform 0.8s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeUp 0.7s ease;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, var(--bg-card), var(--bg-card-soft));
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+      animation: fadeUp 0.8s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(201, 168, 106, 0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(201, 168, 106, 0.4);
+      background: radial-gradient(circle at top, #1d1d28, #111119);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card img {
+      border-radius: 10px;
+      margin-bottom: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #202020, #050505);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      height: 140px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+      font-size: 11px;
+      color: #fdfdfd;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    /* About & Contact */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .about-highlight {
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+
+    .about-box {
+      background: radial-gradient(circle at top, var(--bg-card), var(--bg-card-soft));
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-list li {
+      margin-bottom: 8px;
+    }
+
+    .contact-label {
+      color: var(--gold-soft);
+      font-weight: 600;
+      margin-left: 4px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 18px 0 24px;
+      background: #050507;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 20px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: var(--gold-soft);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 10px 14px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .grid,
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <div class="logo-mark">ح</div>
+      <div>
+        <div class="logo-text-main" data-i18n="brand_name">الحلو</div>
+        <div class="logo-text-sub" data-i18n="brand_sub">للصناعة والتقنيات الحديثة</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#hero" data-i18n="nav_home">الرئيسية</a>
+      <a href="#services" data-i18n="nav_services">خدمات التصنيع</a>
+      <a href="#materials" data-i18n="nav_materials">المواد</a>
+      <a href="#machines" data-i18n="nav_machines">بيع الماكينات</a>
+      <a href="#portfolio" data-i18n="nav_portfolio">معرض الأعمال</a>
+      <a href="#about" data-i18n="nav_about">من نحن</a>
+      <a href="#contact" data-i18n="nav_contact">تواصل معنا</a>
+
+      <button id="langToggle" class="btn-ghost">English</button>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="btn_quote">
+        اطلب عرض سعر
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section id="hero" class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-kicker">INDUSTRIAL • CNC • LASER • PLASMA</div>
+      <h1 class="hero-title" data-i18n="hero_title">
+        الحلو للصناعة والتقنيات الحديثة<br />
+        <span>دقة. قوة. فخامة في كل قطعة.</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">
+        خدمات قص وتشكيل الخشب والحديد والأكريليك بأحدث تقنيات CNC، الليزر، والبلازما، مع إمكانية توفير الماكينات حسب الطلب للمصانع والورش.
+      </p>
+
+      <div class="hero-badges">
+        <div class="badge" data-i18n="badge_cnc">قص CNC للخشب والأكريليك</div>
+        <div class="badge" data-i18n="badge_laser">قص ليزر عالي الدقة</div>
+        <div class="badge" data-i18n="badge_plasma">قص بلازما للحديد والمعادن</div>
+        <div class="badge" data-i18n="badge_machines">بيع ماكينات حسب الطلب</div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" data-i18n="btn_services">
+          استعرض الخدمات
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('machines').scrollIntoView({behavior:'smooth'})" data-i18n="btn_machines">
+          تصفح الماكينات
+        </button>
+      </div>
+
+      <div class="hero-note" data-i18n="hero_note">
+        تنفيذ مشاريع صناعية متكاملة مع <span>التزام بالمواعيد</span> وجودة تشطيب عالية.
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/cnc.jpg" alt="CNC Machine" />
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">SERVICES</div>
+      <h2 class="section-title" data-i18n="services_title">خدمات التصنيع</h2>
+      <p class="section-subtitle" data-i18n="services_sub">
+        حلول صناعية متكاملة باستخدام أحدث ماكينات CNC، الليزر، والبلازما، مع إمكانية تنفيذ مشاريع خاصة حسب الطلب.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img src="images/cnc.jpg" alt="CNC Wood Cutting" />
+        <h3 data-i18n="srv_cnc">قص وتشكيل الخشب CNC</h3>
+        <p data-i18n="srv_cnc_desc">
+          قص أبواب، ديكورات، حفر ثلاثي الأبعاد، ولوحات MDF/HDF بدقة عالية وتشطيب احترافي.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/laser.jpg" alt="Laser Cutting" />
+        <h3 data-i18n="srv_laser">قص ليزر للخشب والأكريليك</h3>
+        <p data-i18n="srv_laser_desc">
+          قص وحفر ليزر للخشب، الأكريليك، والبليكسي لتصميم اللوحات، الهدايا، والديكورات الدقيقة.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/plasma.jpg" alt="Plasma Cutting" />
+        <h3 data-i18n="srv_plasma">قص بلازما للحديد والمعادن</h3>
+        <p data-i18n="srv_plasma_desc">
+          قص حديد وستيل بسماكات مختلفة، لتنفيذ قطع صناعية، قواعد، وهياكل معدنية حسب المخططات.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="materials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">MATERIALS</div>
+      <h2 class="section-title" data-i18n="materials_title">المواد التي نعمل عليها</h2>
+      <p class="section-subtitle" data-i18n="materials_sub">
+        تنوّع في المواد يتيح تنفيذ مشاريع متعددة من الديكور الخشبي حتى الهياكل المعدنية واللوحات الإعلانية.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img src="images/wood.jpg" alt="Wood" />
+        <h3 data-i18n="mat_wood">خشب MDF / HDF</h3>
+        <p data-i18n="mat_wood_desc">أبواب، ديكورات، حفر، وأثاث مخصص.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/metal.jpg" alt="Metal" />
+        <h3 data-i18n="mat_metal">حديد – ستيل – ألمنيوم</h3>
+        <p data-i18n="mat_metal_desc">قص بلازما وتشكيل لقطع صناعية وهياكل.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/acrylic.jpg" alt="Acrylic" />
+        <h3 data-i18n="mat_acrylic">أكريليك – بليكسي</h3>
+        <p data-i18n="mat_acrylic_desc">لوحات إعلانية، واجهات، وعناصر ديكور مضيئة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="machines">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">MACHINES</div>
+      <h2 class="section-title" data-i18n="machines_title">بيع الماكينات حسب الطلب</h2>
+      <p class="section-subtitle" data-i18n="machines_sub">
+        نوفر ماكينات CNC، ليزر، وبلازما بمواصفات تناسب احتياجك، مع إمكانية التوريد حسب الطلب.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3 data-i18n="mc_cnc">ماكينات CNC Router</h3>
+        <p data-i18n="mc_cnc_desc">
+          مساحات عمل متعددة، محاور عالية الدقة، وتحكم رقمي كامل يناسب الورش والمصانع.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 data-i18n="mc_laser">ماكينات ليزر CO2</h3>
+        <p data-i18n="mc_laser_desc">
+          مناسبة للأكريليك، الخشب، والمواد الخفيفة مع دقة عالية في التفاصيل.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 data-i18n="mc_plasma">ماكينات بلازما</h3>
+        <p data-i18n="mc_plasma_desc">
+          قص حديد وستيل بسماكات مختلفة، مناسبة للأعمال الصناعية الثقيلة والهياكل.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">PORTFOLIO</div>
+      <h2 class="section-title" data-i18n="portfolio_title">معرض الأعمال</h2>
+      <p class="section-subtitle" data-i18n="portfolio_sub">
+        نماذج من أعمال الحلو في الخشب، الحديد، والأكريليك، توضح مستوى الدقة وجودة التشطيب.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="images/work1.jpg" alt="Work 1" />
+        <div class="portfolio-overlay" data-i18n="pf_1">أبواب خشبية CNC بتصاميم خاصة</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="images/work2.jpg" alt="Work 2" />
+        <div class="portfolio-overlay" data-i18n="pf_2">لوحات أكريليك مضيئة للواجهات</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="images/work3.jpg" alt="Work 3" />
+        <div class="portfolio-overlay" data-i18n="pf_3">قص بلازما لقطع حديد صناعية</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="images/work4.jpg" alt="Work 4" />
+        <div class="portfolio-overlay" data-i18n="pf_4">ديكورات ليزر للخشب والبليكسي</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container two-col">
+    <div>
+      <div class="section-kicker">ABOUT</div>
+      <h2 class="section-title" data-i18n="about_title">من نحن؟</h2>
+      <p class="about-text" data-i18n="about_text_1">
+        شركة <span class="about-highlight">الحلو للصناعة والتقنيات الحديثة</span> متخصصة في خدمات القص والتشكيل باستخدام أحدث ماكينات
+        CNC، الليزر، والبلازما. نعمل على تنفيذ مشاريع صناعية وديكورية بمستوى عالٍ من الدقة، مع التزام كامل بالمواعيد ومتطلبات العملاء.
+      </p>
+      <p class="about-text" data-i18n="about_text_2">
+        نوفّر أيضاً حلولاً متكاملة للمصانع والورش من خلال بيع الماكينات حسب الطلب، مع دراسة فنية للمواصفات الأنسب لبيئة العمل وطبيعة الإنتاج.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <h3 style="margin-bottom:8px;font-size:16px;" data-i18n="why_title">لماذا الحلو؟</h3>
+      <ul style="list-style:disc;padding-right:18px;font-size:13px;color:var(--text-muted);">
+        <li data-i18n="why_1">استخدام ماكينات حديثة تضمن دقة عالية في القص والتشكيل.</li>
+        <li data-i18n="why_2">إمكانية تنفيذ مشاريع خاصة حسب المخططات والرسومات.</li>
+        <li data-i18n="why_3">تنوع في المواد: خشب، حديد، أكريليك، وبقية المواد المساندة.</li>
+        <li data-i18n="why_4">خدمة بيع ماكينات حسب الطلب للمصانع والورش.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container two-col">
+    <div>
+      <div class="section-kicker">CONTACT</div>
+      <h2 class="section-title" data-i18n="contact_title">تواصل معنا</h2>
+      <ul class="contact-list">
+        <li data-i18n="contact_loc">
+          <span class="contact-label">الموقع:</span>
+          يحدد حسب عنوان المصنع / الورشة.
+        </li>
+        <li data-i18n="contact_phone">
+          <span class="contact-label">الهاتف:</span>
+          رقم الهاتف الرئيسي يوضع هنا.
+        </li>
+        <li data-i18n="contact_whatsapp">
+          <span class="contact-label">واتساب:</span>
+          رقم واتساب لخدمة العملاء.
+        </li>
+        <li data-i18n="contact_email">
+          <span class="contact-label">البريد الإلكتروني:</span>
+          info@alhelou-industries.com (مثال)
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-box">
+      <h3 style="margin-bottom:8px;font-size:16px;" data-i18n="contact_form_title">هل لديك مشروع أو تحتاج ماكينة؟</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;" data-i18n="contact_form_sub">
+        أرسل لنا تفاصيل طلبك وسنقوم بالتواصل معك بأسرع وقت ممكن.
+      </p>
+      <form>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px;">
+          <input type="text" placeholder="الاسم" style="padding:7px 9px;border-radius:8px;border:1px solid var(--border-subtle);background:#0f0f16;color:var(--text-main);font-size:12px;" data-i18n-placeholder-ar="الاسم" data-i18n-placeholder-en="Name" />
+          <input type="tel" placeholder="رقم الهاتف" style="padding:7px 9px;border-radius:8px;border:1px solid var(--border-subtle);background:#0f0f16;color:var(--text-main);font-size:12px;" data-i18n-placeholder-ar="رقم الهاتف" data-i18n-placeholder-en="Phone" />
+        </div>
+        <textarea placeholder="تفاصيل الطلب" style="width:100%;min-height:80px;padding:7px 9px;border-radius:8px;border:1px solid var(--border-subtle);background:#0f0f16;color:var(--text-main);font-size:12px;resize:vertical;" data-i18n-placeholder-ar="تفاصيل الطلب" data-i18n-placeholder-en="Request details"></textarea>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;" data-i18n="contact_send">
+          إرسال
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div data-i18n="footer_text">
+      © الحلو للصناعة والتقنيات الحديثة – جميع الحقوق محفوظة
+    </div>
+    <div class="footer-brand" data-i18n="footer_tagline">
+      CNC • ليزر • بلازما • خشب • حديد • أكريليك
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    ar: {
+      brand_name: "الحلو للصناعة والتقنيات الحديثة",
+      brand_sub: "",
+
+      nav_home: "الرئيسية",
+      nav_services: "خدمات التصنيع",
+      nav_materials: "المواد",
+      nav_machines: "بيع الماكينات",
+      nav_portfolio: "معرض الأعمال",
+      nav_about: "من نحن",
+      nav_contact: "تواصل معنا",
+
+      btn_quote: "اطلب عرض سعر",
+      btn_services: "استعرض الخدمات",
+      btn_machines: "تصفح الماكينات",
+
+      hero_title: "الحلو للصناعة والتقنيات الحديثة\nدقة. قوة. فخامة في كل قطعة.",
+      hero_sub: "خدمات قص وتشكيل الخشب والحديد والأكريليك بأحدث تقنيات CNC، الليزر، والبلازما، مع إمكانية توفير الماكينات حسب الطلب للمصانع والورش.",
+      hero_note: "تنفيذ مشاريع صناعية متكاملة مع <span>التزام بالمواعيد</span> وجودة تشطيب عالية.",
+
+      badge_cnc: "قص CNC للخشب والأكريليك",
+      badge_laser: "قص ليزر عالي الدقة",
+      badge_plasma: "قص بلازما للحديد والمعادن",
+      badge_machines: "بيع ماكينات حسب الطلب",
+
+      services_title: "خدمات التصنيع",
+      services_sub: "حلول صناعية متكاملة باستخدام أحدث ماكينات CNC، الليزر، والبلازما، مع إمكانية تنفيذ مشاريع خاصة حسب الطلب.",
+      srv_cnc: "قص وتشكيل الخشب CNC",
+      srv_cnc_desc: "قص أبواب، ديكورات، حفر ثلاثي الأبعاد، ولوحات MDF/HDF بدقة عالية وتشطيب احترافي.",
+      srv_laser: "قص ليزر للخشب والأكريليك",
+      srv_laser_desc: "قص وحفر ليزر للخشب، الأكريليك، والبليكسي لتصميم اللوحات، الهدايا، والديكورات الدقيقة.",
+      srv_plasma: "قص بلازما للحديد والمعادن",
+      srv_plasma_desc: "قص حديد وستيل بسماكات مختلفة، لتنفيذ قطع صناعية، قواعد، وهياكل معدنية حسب المخططات.",
+
+      materials_title: "المواد التي نعمل عليها",
+      materials_sub: "تنوّع في المواد يتيح تنفيذ مشاريع متعددة من الديكور الخشبي حتى الهياكل المعدنية واللوحات الإعلانية.",
+      mat_wood: "خشب MDF / HDF",
+      mat_wood_desc: "أبواب، ديكورات، حفر، وأثاث مخصص.",
+      mat_metal: "حديد – ستيل – ألمنيوم",
+      mat_metal_desc: "قص بلازما وتشكيل لقطع صناعية وهياكل.",
+      mat_acrylic: "أكريليك – بليكسي",
+      mat_acrylic_desc: "لوحات إعلانية، واجهات، وعناصر ديكور مضيئة.",
+
+      machines_title: "بيع الماكينات حسب الطلب",
+      machines_sub: "نوفر ماكينات CNC، ليزر، وبلازما بمواصفات تناسب احتياجك، مع إمكانية التوريد حسب الطلب.",
+      mc_cnc: "ماكينات CNC Router",
+      mc_cnc_desc: "مساحات عمل متعددة، محاور عالية الدقة، وتحكم رقمي كامل يناسب الورش والمصانع.",
+      mc_laser: "ماكينات ليزر CO2",
+      mc_laser_desc: "مناسبة للأكريليك، الخشب، والمواد الخفيفة مع دقة عالية في التفاصيل.",
+      mc_plasma: "ماكينات بلازما",
+      mc_plasma_desc: "قص حديد وستيل بسماكات مختلفة، مناسبة للأعمال الصناعية الثقيلة والهياكل.",
+
+      portfolio_title: "معرض الأعمال",
+      portfolio_sub: "نماذج من أعمال الحلو في الخشب، الحديد، والأكريليك، توضح مستوى الدقة وجودة التشطيب.",
+      pf_1: "أبواب خشبية CNC بتصاميم خاصة",
+      pf_2: "لوحات أكريليك مضيئة للواجهات",
+      pf_3: "قص بلازما لقطع حديد صناعية",
+      pf_4: "ديكورات ليزر للخشب والبليكسي",
+
+      about_title: "من نحن؟",
+      about_text_1: "شركة <span class=\"about-highlight\">الحلو للصناعة والتقنيات الحديثة</span> متخصصة في خدمات القص والتشكيل باستخدام أحدث ماكينات CNC، الليزر، والبلازما. نعمل على تنفيذ مشاريع صناعية وديكورية بمستوى عالٍ من الدقة، مع التزام كامل بالمواعيد ومتطلبات العملاء.",
+      about_text_2: "نوفّر أيضاً حلولاً متكاملة للمصانع والورش من خلال بيع الماكينات حسب الطلب، مع دراسة فنية للمواصفات الأنسب لبيئة العمل وطبيعة الإنتاج.",
+
+      why_title: "لماذا الحلو؟",
+      why_1: "استخدام ماكينات حديثة تضمن دقة عالية في القص والتشكيل.",
+      why_2: "إمكانية تنفيذ مشاريع خاصة حسب المخططات والرسومات.",
+      why_3: "تنوع في المواد: خشب، حديد، أكريليك، وبقية المواد المساندة.",
+      why_4: "خدمة بيع ماكينات حسب الطلب للمصانع والورش.",
+
+      contact_title: "تواصل معنا",
+      contact_loc: "<span class=\"contact-label\">الموقع:</span> يحدد حسب عنوان المصنع / الورشة.",
+      contact_phone: "<span class=\"contact-label\">الهاتف:</span> رقم الهاتف الرئيسي يوضع هنا.",
+      contact_whatsapp: "<span class=\"contact-label\">واتساب:</span> رقم واتساب لخدمة العملاء.",
+      contact_email: "<span class=\"contact-label\">البريد الإلكتروني:</span> info@alhelou-industries.com (مثال)",
+
+      contact_form_title: "هل لديك مشروع أو تحتاج ماكينة؟",
+      contact_form_sub: "أرسل لنا تفاصيل طلبك وسنقوم بالتواصل معك بأسرع وقت ممكن.",
+      contact_send: "إرسال",
+
+      footer_text: "© الحلو للصناعة والتقنيات الحديثة – جميع الحقوق محفوظة",
+      footer_tagline: "CNC • ليزر • بلازما • خشب • حديد • أكريليك"
+    },
+
+    en: {
+      brand_name: "Al-Helou",
+      brand_sub: "Industries & Modern Technologies",
+
+      nav_home: "Home",
+      nav_services: "Services",
+      nav_materials: "Materials",
+      nav_machines: "Machines",
+      nav_portfolio: "Portfolio",
+      nav_about: "About",
+      nav_contact: "Contact",
+
+      btn_quote: "Request Quote",
+      btn_services: "View Services",
+      btn_machines: "Browse Machines",
+
+      hero_title: "Al-Helou Industries & Modern Technologies\nPrecision. Power. Luxury in every detail.",
+      hero_sub: "Cutting and shaping wood, metal, and acrylic using CNC, laser, and plasma technologies, with custom machine supply for workshops and factories.",
+      hero_note: "End-to-end industrial projects with <span>on-time delivery</span> and premium finishing quality.",
+
+      badge_cnc: "CNC cutting for wood & acrylic",
+      badge_laser: "High-precision laser cutting",
+      badge_plasma: "Plasma cutting for metals",
+      badge_machines: "Custom machine supply",
+
+      services_title: "Manufacturing Services",
+      services_sub: "End-to-end industrial solutions using modern CNC, laser, and plasma machines, with custom project execution.",
+      srv_cnc: "CNC Wood & Acrylic Cutting",
+      srv_cnc_desc: "Doors, décor, 3D carving, and MDF/HDF panels with high precision and clean finishing.",
+      srv_laser: "Laser Cutting for Wood & Acrylic",
+      srv_laser_desc: "Laser cutting and engraving for wood, acrylic, and plexi for signage, gifts, and fine décor.",
+      srv_plasma: "Plasma Cutting for Metals",
+      srv_plasma_desc: "Steel and metal cutting for industrial parts, bases, and structural elements.",
+
+      materials_title: "Materials We Work With",
+      materials_sub: "A wide range of materials enabling projects from wooden décor to metal structures and signage.",
+      mat_wood: "Wood MDF / HDF",
+      mat_wood_desc: "Doors, décor, carving, and custom furniture.",
+      mat_metal: "Steel – Iron – Aluminum",
+      mat_metal_desc: "Plasma cutting and forming for industrial parts and structures.",
+      mat_acrylic: "Acrylic – Plexi",
+      mat_acrylic_desc: "Signage, façades, and illuminated décor elements.",
+
+      machines_title: "Machines for Sale",
+      machines_sub: "We provide CNC, laser, and plasma machines tailored to your production needs.",
+      mc_cnc: "CNC Router Machines",
+      mc_cnc_desc: "Multiple work areas, high-precision axes, and full digital control for workshops and factories.",
+      mc_laser: "CO2 Laser Machines",
+      mc_laser_desc: "Ideal for acrylic, wood, and light materials with high detail accuracy.",
+      mc_plasma: "Plasma Cutting Machines",
+      mc_plasma_desc: "Cutting steel and metals with various thicknesses for heavy industrial work.",
+
+      portfolio_title: "Portfolio",
+      portfolio_sub: "Selected Al-Helou projects in wood, metal, and acrylic, showcasing precision and finishing quality.",
+      pf_1: "Custom CNC wooden doors",
+      pf_2: "Illuminated acrylic signage",
+      pf_3: "Plasma-cut industrial steel parts",
+      pf_4: "Laser décor for wood and plexi",
+
+      about_title: "About Us",
+      about_text_1: "Al-Helou Industries & Modern Technologies specializes in CNC, laser, and plasma cutting services. We deliver industrial and décor projects with high precision and strict adherence to timelines.",
+      about_text_2: "We also provide complete solutions for factories and workshops by supplying machines on demand, with technical consultation to match your production environment.",
+
+      why_title: "Why Al-Helou?",
+      why_1: "Modern machinery ensuring high precision in cutting and shaping.",
+      why_2: "Ability to execute custom projects based on drawings and designs.",
+      why_3: "Wide material range: wood, metal, acrylic, and more.",
+      why_4: "On-demand machine supply for workshops and factories.",
+
+      contact_title: "Contact Us",
+      contact_loc: "<span class=\"contact-label\">Location:</span> To be set according to factory / workshop address.",
+      contact_phone: "<span class=\"contact-label\">Phone:</span> Main contact number goes here.",
+      contact_whatsapp: "<span class=\"contact-label\">WhatsApp:</span> Customer service WhatsApp number.",
+      contact_email: "<span class=\"contact-label\">Email:</span> info@alhelou-industries.com (example)",
+
+      contact_form_title: "Have a project or need a machine?",
+      contact_form_sub: "Send us your request details and we will get back to you as soon as possible.",
+      contact_send: "Send",
+
+      footer_text: "© Al-Helou Industries & Modern Technologies – All Rights Reserved",
+      footer_tagline: "CNC • Laser • Plasma • Wood • Metal • Acrylic"
+    }
+  };
+
+  let currentLang = "ar";
+
+  function applyTranslations() {
+    const dict = translations[currentLang];
+
+    for (const key in dict) {
+      const el = document.querySelector(`[data-i18n='${key}']`);
+      if (el) {
+        el.innerHTML = dict[key];
+      }
+    }
+
+    // placeholders
+    document.querySelectorAll("[data-i18n-placeholder-ar]").forEach((el) => {
+      if (currentLang === "ar") {
+        el.placeholder = el.getAttribute("data-i18n-placeholder-ar");
+      } else {
+        el.placeholder = el.getAttribute("data-i18n-placeholder-en");
+      }
+    });
+
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+    document.getElementById("langToggle").innerText =
+      currentLang === "ar" ? "English" : "العربية";
+  }
+
+  document.getElementById("langToggle").onclick = () => {
+    currentLang = currentLang === "ar" ? "en" : "ar";
+    applyTranslations();
+  };
+
+  // initial
+  applyTranslations();
+</script>
+
+</body>
+</html>
